@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import { TextInput } from "@tremor/react";
 import {
   Card,
@@ -13,6 +14,8 @@ import {
   Button,
 } from "@tremor/react";
 import { List, ListItem } from "@tremor/react";
+
+import { getLabels } from "../../utils/api";
 
 const cities = [
   {
@@ -50,6 +53,18 @@ export default function Home() {
   ): void {
     throw new Error("Function not implemented.");
   }
+
+  // labels that coresspond to an account
+  const [labels, setLabels] = useState();
+
+  useEffect(() => {
+    const fetchLabels = async () => {
+      const user = localStorage.getItem("voidUser");
+      setLabels(await getLabels(user));
+    };
+
+    fetchLabels();
+  }, []);
 
   return (
     <main className="px-12 py-12">
