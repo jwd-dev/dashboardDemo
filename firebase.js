@@ -6,8 +6,9 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const apiKey = process.env.NEXT_PUBLIC_FB_API_KEY;
 const firebaseConfig = {
-  apiKey: process.env.FB_API_KEY,
+  apiKey: apiKey,
   authDomain: "deeptruth-fb46f.firebaseapp.com",
   projectId: "deeptruth-fb46f",
   storageBucket: "deeptruth-fb46f.appspot.com",
