@@ -36,4 +36,4 @@ const score = async (admin, label, path) => {
   return json["data"];
 };
 
-export { getLabels, addBlobPathToLabels };
+export { getLabels, addBlobPathToLabels, score };

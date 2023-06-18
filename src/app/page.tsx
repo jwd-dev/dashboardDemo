@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { TextInput } from "@tremor/react";
 import {
   Card,
@@ -53,6 +54,13 @@ export default function Home() {
   ): void {
     throw new Error("Function not implemented.");
   }
+  const { push } = useRouter();
+
+  useEffect(() => {
+    if (localStorage.getItem("voidUser") == null) {
+      push("/auth");
+    }
+  }, []);
 
   // labels that coresspond to an account
   const [labels, setLabels] = useState();
@@ -70,6 +78,10 @@ export default function Home() {
     <main className="px-12 py-12">
       <Title>VoID</Title>
       <Text>Demo of voice identification</Text>
+
+      <Button onClick={() => localStorage.removeItem("voidUser")}>
+        Log Out
+      </Button>
 
       <TabGroup className="mt-6">
         <TabList>
