@@ -12,7 +12,7 @@ import {
   TabPanels,
   Button,
 } from "@tremor/react";
-import {  List, ListItem } from "@tremor/react";
+import { List, ListItem } from "@tremor/react";
 
 const cities = [
   {
@@ -45,11 +45,13 @@ export default function Home() {
     throw new Error("Function not implemented.");
   }
 
-  function handleSubmission(event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
+  function handleSubmission(
+    event: MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void {
     throw new Error("Function not implemented.");
   }
 
-  return ( 
+  return (
     <main className="px-12 py-12">
       <Title>VoID</Title>
       <Text>Demo of voice identification</Text>
@@ -61,28 +63,24 @@ export default function Home() {
         <TabPanels>
           <TabPanel>
             <Grid numItemsMd={2} numItemsLg={3} className="gap-6 mt-6">
-            <Card className="max-w-xs">
-    <Title>Users</Title>
-    <List>
-      {cities.map((item) => (
-        <ListItem key={item.name}>
-          <span>{item.name}</span>
-          <Button size="xs">Authenticate</Button>
-        </ListItem>
-      ))}
-    </List>
-  </Card>
-              <Card>
-              <TextInput placeholder="Name" />
-              <input type="file" name="file" onChange={changeHandler} />
-              <Button size="xs">Submit User</Button>
-
+              <Card className="max-w-xs">
+                <Title>Users</Title>
+                <List>
+                  {cities.map((item) => (
+                    <ListItem key={item.name}>
+                      <span>{item.name}</span>
+                      <Button size="xs">Authenticate</Button>
+                    </ListItem>
+                  ))}
+                </List>
               </Card>
-         
+              <Card>
+                <TextInput placeholder="Name" />
+                <input type="file" name="file" onChange={changeHandler} />
+                <Button size="xs">Submit User</Button>
+              </Card>
             </Grid>
-           
           </TabPanel>
-
         </TabPanels>
       </TabGroup>
     </main>
